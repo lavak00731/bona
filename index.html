@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Bonafont autoscan</title>
+</head>
+<body>
+    <main>
+        <article>
+            <header>
+                <figure class="bona-img-banner small-hidden"><img src="/assets/headerimg.svg" alt=""></figure>
+                <div class="bona-title-wrapper">
+                    <div class="bona-header-wrapper">
+                        <figure class="bona-img-wrapper"><img src="/assets/logocima.svg" alt="Logo Bonafont con Fundación Clima"></figure>
+                        <h1>En Bonafont, queremos aligerar la lucha contra el c&aacute;ncer de mama de las mujeres</h1>
+                    </div>
+                    <p>Por eso, en alianza con Fundaci&oacute;n Cima, recolectaremos y convertiremos tus tapas de Bonafont en ayuda,
+                        para combartirlo y detectarlo a tiempo.</p>
+                </div>
+            </header>
+            <div class="bona-secondary-banner">
+                <h2>KG de tapitas: <strong>000.000.000</strong></h2>
+                <h2>Autoexploraciones: <strong>000.000.000</strong></h2>
+            </div>
+            <section class="bona-actions" aria-describedby="dona">
+                <div class="bona-subsection">
+                    <figure class="bona-cover">
+                        <img src="assets/bonafontcover.svg" alt="Tapa de botella Bonafont con hornamento de flores">
+                    </figure>
+                    <h2 id="dona">Dona tus tapas</h2>
+                    <p class="bona-text-centered">Donar tus tapas ayudará a miles de mujeres, 
+                        a detecter y tratar el c&aacute;ncer, aligerando su lucha contra este padecimiento. Encuentra tu sucursal 
+                        Wal-Mart m&aacute;s cercana para hacerlo o agenda tu recolecci&oacute;n.
+                    </p>
+                    <div class="bona-section-footer">
+                        <button type="button" data-target="agendar">Agendar</button>
+                        <button type="button" data-target="sucursales">Ver Sucursales</button>
+                    </div>
+                </div>
+                <div class="bona-subsection">
+                    <figure class="bona-img-wrapper">
+                        <img src="assets/explorate.svg" alt="Imagen de la aplicación escaneando tapas Bonafont">
+                    </figure>
+                    <h2>Autoexpl&oacute;rate</h2>
+                    <p class="bona-text-centered">Escanear tus tapas ayuda a detectar oportunamente el c&aacute;ncer de mama.
+                        Aprende c&oacute;mo autoexplorarte de manera correcta, usando nuestro filtro.                        
+                    </p>
+                    <div class="bona-section-footer">
+                        <button type="button">Ir al filtro</button>
+                    </div>
+                </div>
+                <div class="bona-subsection" hidden>
+                    <form id="retirar" action="">
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="nombre">Nombre</label>
+                            <input id="nombre" name="nombre" placeholder="Nombre Completo" type="text" required>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="direccion">Dirección</label>
+                            <input id="direccion" name="direccion" placeholder="Dirección Completa" type="text" required>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="telefono">Teléfono</label>
+                            <input id="telefono" name="telefono" placeholder="Tel&eacute;fono" type="tel" required>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="email">Email</label>
+                            <input id="email" name="email" placeholder="E-mail" type="email" required>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="fecha">Fecha</label>
+                            <input id="fecha" name="fecha" placeholder="DD/MM/AAAA" type="date" required>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="bona-subsection">
+                    <figure class="bona-map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10044.953955807572!2d-99.16613450480986!3d19.429407329975103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1664218339540!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </figure>
+                    <div class="bona-share-position-wrapper">
+                        <button type="button">Compartir ubicaci&oacute;n</button>
+                    </div>
+                    <div class="bona-localization-comp" hidden>
+                        <form id="localizar" action="">
+                            <div class="bona-input-wrapper half-width">
+                                <label class="visuallyhidden" for="cp">C&oacute;digo Postal</label>
+                                <input id="cp" name="cp" placeholder="Ingresar el CP" type="text" required>
+                            </div>
+                            <div class="bona-input-wrapper half-width">
+                                <button type="submit">Localizar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="bona-subsection" hidden>
+                    <figure class="bona-img-wrapper">
+                        <img src="assets/check.svg" alt="">
+                    </figure>
+                    <h2>Tu recolecci&oacute;n fue agendada</h2>
+                    <p class="bona-text-centered">Recuerda que s&oacute;lo es posible recolectar tus tapas is tienes programado un pedido</p>
+                </div>
+            </section>
+            <footer>
+                <h3>Nuestra Alianza</h3>
+                <p>A lo largo de 5 años, en conjunto con Fundaci&oacute;n CIMA, hemos logrado ayudar a más de 100 mujeres de manera activa, con tratamientos
+                    y estudios preventivos, como mastografías y ultrasonidos mamarios, adem&aacute;s de contar con grupos de apoyo emocional.
+                </p>
+            </footer>
+        </article>       
+    </main>
+</body>
+</html>
