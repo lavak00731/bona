@@ -13,4 +13,5 @@
     document.querySelectorAll('button[data-target]').forEach((elem) => {
         elem.addEventListener('click', scrollHandling);
     });
+
 })();
