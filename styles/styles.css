@@ -35,6 +35,19 @@
   textarea {
     white-space: revert;
   }
+  [hidden] {
+    display: none!important;
+  }
+
+  .visuallyhidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
   /* Custom Styles */
   @font-face {
       font-family: 'GalanoGrotesq';
@@ -55,8 +68,14 @@
      --white: #FFF;
      --main-color: #f45567;
      --background-color-btn: #f19f85;
+     --background-color-btn-hover: #ff8d5d;
      --text-shadow: #ab787d;
      --main-background-color: #fae5e7;
+     --white-text: #fffbfb;
+     --footer-bckgr-color: #e1839b;
+     --right-hand-bckgrd: #f9d9cf;
+     --border-input: #edabb3;
+     --placeholder-text-color: #c0b2b4;
   }
   body {
     font-family: var(--main-font), sans-serif;
@@ -73,7 +92,8 @@
   .small-hidden {
       display: none;
   }
-  figure > img {
+  figure > img,
+  figure > iframe {
       max-width: 100%;
   }
   .bona-title-wrapper {
@@ -91,7 +111,7 @@
   }
   h1 {
       font-family: var(--font-bold-italic);
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.2;
       width: calc( 94% - 90px );
       text-transform: uppercase;
@@ -109,9 +129,111 @@
   strong {
       font-family: var(--font-bold);
   }
-  .bona-subsection:nth-child(1) {
-    background-color: var(--main-background-color);
-    padding: 2rem 0
+  .bona-subsection,
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-around;
+    padding: 2rem 1rem;
+  }
+  .bona-cover {
+    width: 50%;
+    margin: 0 auto 2rem;
+  }
+  .bona-subsection button {
+    background-color: var(--background-color-btn);
+    color: var(--white-text);
+    text-align: center;
+    padding: 0.3rem 1rem;
+    font-weight: 500;
+    width: 12rem;
+    margin: 0 0 1rem;
+    border-radius: 0.3rem;
+  }
+  .bona-subsection button:hover, 
+  .bona-subsection button:focus-visible {
+    background-color: var(--background-color-btn-hover)
+  }
+  .bona-subsection h2 {
+    font-family: var(--font-bold);
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .bona-subsection p {
+    margin-bottom: 1rem;
+  }
+  .bona-text-centered {
+    text-align: center;
+  }
+  .bona-section-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: space-between;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .bona-round-img {
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
+  }
+  .bona-subsection:nth-child(1),
+  .bona-subsection:nth-child(2) {
+    background-color: var(--main-background-color);    
+  }
+  .bona-subsection:nth-child(3),
+  .bona-subsection:nth-child(4),
+  .bona-subsection:nth-child(5) {
+    background-color: var(--right-hand-bckgrd);
+  }
+  .bona-map-wrapper,
+  .bona-share-position-wrapper {
+    margin: 0 0 2rem;
+  }
+  .bona-share-position-wrapper button {
+    width: auto;
+    padding: 0.3rem 3rem;
+  }
+  form {
+    width: 100%;
+  }
+  .bona-input-wrapper {
+    text-align: center;
+  }
+  input {
+    background-color: var(--white);
+    padding: 0.3rem 0.6rem;
+    border: 2px solid var(--border-input);
+    border-radius: 5px;
+    margin: 0 auto 1.5rem;
+    width: 100%;
+    text-align: left;
+  }
+  ::-webkit-input-placeholder { /* Edge */
+    color: var(--placeholder-text-color);
+  }
+  ::placeholder {
+    color: var(--placeholder-text-color);;
+  }
+  .bona-localization-comp {
+    width: 100%;
+  }
+  footer {
+    background-color: var(--footer-bckgr-color);
+  }
+  footer h3 {
+    font-family: var(--font-bold);
+    font-size: 1rem;
+    color: var(--white);
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+  }
+  footer p {
+    color: var(--white);
   }
   @media (min-width: 768px) {
     .bona-secondary-banner {

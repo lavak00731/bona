@@ -40,9 +40,9 @@
                         <button type="button" data-target="sucursales">Ver Sucursales</button>
                     </div>
                 </div>
-                <div class="bona-subsection">
-                    <figure class="bona-img-wrapper">
-                        <img src="assets/explorate.svg" alt="Imagen de la aplicación escaneando tapas Bonafont">
+                <div class="bona-subsection" data-remove="true">
+                    <figure class="bona-cover">
+                        <img class="bona-round-img" src="assets/explorate.svg" alt="Imagen de la aplicación escaneando tapas Bonafont">
                     </figure>
                     <h2>Autoexpl&oacute;rate</h2>
                     <p class="bona-text-centered">Escanear tus tapas ayuda a detectar oportunamente el c&aacute;ncer de mama.
@@ -52,7 +52,7 @@
                         <button type="button">Ir al filtro</button>
                     </div>
                 </div>
-                <div class="bona-subsection" hidden>
+                <div class="bona-subsection" data-remove="true" id="agendar" hidden>
                     <form id="retirar" action="">
                         <div class="bona-input-wrapper">
                             <label class="visuallyhidden" for="nombre">Nombre</label>
@@ -72,21 +72,21 @@
                         </div>
                         <div class="bona-input-wrapper">
                             <label class="visuallyhidden" for="fecha">Fecha</label>
-                            <input id="fecha" name="fecha" placeholder="DD/MM/AAAA" type="date" required>
+                            <input id="fecha" name="fecha" placeholder="DD/MM/AAAA" type="text" required>
                         </div>
                         <div class="bona-input-wrapper">
                             <button type="submit">Enviar</button>
                         </div>
                     </form>
                 </div>
-                <div class="bona-subsection">
+                <div class="bona-subsection" data-remove="true" id="sucursales" hidden>
                     <figure class="bona-map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10044.953955807572!2d-99.16613450480986!3d19.429407329975103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1664218339540!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10044.953955807572!2d-99.16613450480986!3d19.429407329975103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1664218339540!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </figure>
                     <div class="bona-share-position-wrapper">
                         <button type="button">Compartir ubicaci&oacute;n</button>
                     </div>
-                    <div class="bona-localization-comp" hidden>
+                    <div class="bona-localization-comp">
                         <form id="localizar" action="">
                             <div class="bona-input-wrapper half-width">
                                 <label class="visuallyhidden" for="cp">C&oacute;digo Postal</label>
@@ -98,7 +98,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="bona-subsection" hidden>
+                <div class="bona-subsection" id="finform" hidden>
                     <figure class="bona-img-wrapper">
                         <img src="assets/check.svg" alt="">
                     </figure>
@@ -108,11 +108,12 @@
             </section>
             <footer>
                 <h3>Nuestra Alianza</h3>
-                <p>A lo largo de 5 años, en conjunto con Fundaci&oacute;n CIMA, hemos logrado ayudar a más de 100 mujeres de manera activa, con tratamientos
+                <p class="bona-text-centered">A lo largo de 5 años, en conjunto con Fundaci&oacute;n CIMA, hemos logrado ayudar a más de 100 mujeres de manera activa, con tratamientos
                     y estudios preventivos, como mastografías y ultrasonidos mamarios, adem&aacute;s de contar con grupos de apoyo emocional.
                 </p>
             </footer>
         </article>       
     </main>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
