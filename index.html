@@ -13,11 +13,11 @@
             <header>
                 <div class="bona-title-wrapper">
                     <div class="bona-header-wrapper">
-                        <figure class="bona-img-wrapper"><img src="/assets/logocima.svg" alt="Logo Bonafont con Fundación Clima"></figure>
+                        <figure class="bona-img-wrapper"><img src="/assets/logocima.svg" alt="Logo Bonafont con Fundación Cima"></figure>
                         <h1>En Bonafont, queremos aligerar la lucha contra el c&aacute;ncer de mama de las mujeres</h1>
                     </div>
-                    <p>Por eso, en alianza con Fundaci&oacute;n Cima, recolectaremos y convertiremos tus tapas de Bonafont en ayuda,
-                        para combartirlo y detectarlo a tiempo.</p>
+                    <p>Por eso, en alianza con <span class="cima-logo" aria-hidden="true"></span> <span class="visuallyhidden">Fundaci&oacute;n Cima</span>, creamos <strong>Tapas que aligeran</strong>.</p>
+                    <p>Una campaña que las recolecta y convierte en ayuda para combatir y detectar a tiempo este padecimiento.</p>
                 </div>
             </header>
             <div class="bona-secondary-banner">
@@ -30,16 +30,17 @@
                         <img src="assets/bonafontcover.svg" alt="Tapa de botella Bonafont con hornamento de flores">
                     </figure>
                     <h2 id="dona">Dona tus tapas</h2>
-                    <p class="bona-text-centered">Donar tus tapas ayudará a miles de mujeres, 
-                        a detecter y tratar el c&aacute;ncer, aligerando su lucha contra este padecimiento. Encuentra tu sucursal 
-                        Wal-Mart m&aacute;s cercana para hacerlo o agenda tu recolecci&oacute;n.
+                    <p class="bona-text-centered">S&uacute;mate y apoya entregando tus tapas Bonafont o de
+                        cualquier otra botella de plástico en: sucursales de Walmart
+                        participantes, una de las más de 450 tienditas de la esquina
+                        o agendando la recolección hasta tu casa.
                     </p>
                     <div class="bona-section-footer">
                         <button type="button" data-target="agendar">Agendar</button>
                         <button type="button" data-target="sucursales">Ver Sucursales</button>
                     </div>
                 </div>
-                <div class="bona-subsection" data-remove="true">
+                <!--<div class="bona-subsection" data-remove="true">
                     <figure class="bona-cover">
                         <img class="bona-round-img" src="assets/explorate.svg" alt="Imagen de la aplicación escaneando tapas Bonafont">
                     </figure>
@@ -48,7 +49,16 @@
                         Aprende c&oacute;mo autoexplorarte de manera correcta, usando nuestro filtro.                        
                     </p>
                     <div class="bona-section-footer">
-                        <button type="button">Ir al filtro</button>
+                        <button type="button">
+                            Ir al filtro
+                            <span class="visuallyhidden">Facebook</span>
+                            <img src="assets/facebookicon.svg" alt="">
+                        </button>
+                        <button type="button">
+                            Ir al filtro
+                            <span class="visuallyhidden">Instagram</span>
+                            <img src="assets/instagramlogo.svg" alt="">
+                        </button>
                     </div>
                 </div>
                 <div class="bona-subsection bona-arrow-icon" data-remove="true" id="sucursales" hidden>
@@ -74,43 +84,101 @@
                     <form id="retirar" action="">
                         <p role="alert" tabIndex="-1" hidden="hidden">Un problema surgió, por favor intente enviar el formulario en unos minutos.</p>
                         <div class="bona-input-wrapper">
-                            <label class="visuallyhidden" for="nombre">Nombre</label>
-                            <input id="nombre" name="nombre" placeholder="Nombre Completo" type="text" required>
+                            <label class="visuallyhidden" for="nombre">Nombre y Apellidos</label>
+                            <input id="nombre" name="nombre" placeholder="Nombre y apellidos" type="text" required>
                         </div>
                         <div class="bona-input-wrapper">
                             <label class="visuallyhidden" for="direccion">Dirección</label>
-                            <input id="direccion" name="direccion" placeholder="Dirección Completa" type="text" required>
+                            <input id="direccion" name="direccion" placeholder="Direcci&oacute;n (calle y n&uacute;mero)" type="text" required>
                         </div>
                         <div class="bona-input-wrapper">
                             <label class="visuallyhidden" for="telefono">Teléfono</label>
                             <input id="telefono" name="telefono" placeholder="Tel&eacute;fono" type="tel" required>
                         </div>
-                        <div class="bona-input-wrapper">
-                            <label class="visuallyhidden" for="email">Email</label>
-                            <input id="email" name="email" placeholder="E-mail" type="email" required>
+                        <div class="bona-input-wrapper two-elements">
+                            <label class="visuallyhidden" for="cpform">C&oacute;digo Postal</label>
+                            <input id="cpform" name="cpform" placeholder="C&oacute;digo postal" type="text" required>
+                            <button type="button" class="width-auto">Validar c&oacute;digo postal</button>
                         </div>
                         <div class="bona-input-wrapper">
-                            <label class="visuallyhidden" for="fecha">Fecha</label>
-                            <input id="fecha" name="fecha" placeholder="DD/MM/AAAA" type="text" required>
+                            <label class="visuallyhidden" for="estado">Estado / provincia</label>
+                            <select name="estado" id="estado" required>
+                                <option value="">Estado / provincia / regi&oacute;n</option>
+                                <option value="DIF">Distrito Federal</option>
+                                <option value="AGS">Aguascalientes</option>
+                                <option value="BCN">Baja California</option>
+                                <option value="BCS">Baja California Sur</option>
+                                <option value="CAM">Campeche</option>
+                                <option value="CHP">Chiapas</option>
+                                <option value="CHI">Chihuahua</option>
+                                <option value="COA">Coahuila</option>
+                                <option value="COL">Colima</option>
+                                <option value="DUR">Durango</option>
+                                <option value="GTO">Guanajuato</option>
+                                <option value="GRO">Guerrero</option>
+                                <option value="HGO">Hidalgo</option>
+                                <option value="JAL">Jalisco</option>
+                                <option value="MEX">M&eacute;xico</option>
+                                <option value="MIC">Michoac&aacute;n</option>
+                                <option value="MOR">Morelos</option>
+                                <option value="NAY">Nayarit</option>
+                                <option value="NLE">Nuevo Le&oacute;n</option>
+                                <option value="OAX">Oaxaca</option>
+                                <option value="PUE">Puebla</option>
+                                <option value="QRO">Quer&eacute;taro</option>
+                                <option value="ROO">Quintana Roo</option>
+                                <option value="SLP">San Luis Potos&iacute;</option>
+                                <option value="SIN">Sinaloa</option>
+                                <option value="SON">Sonora</option>
+                                <option value="TAB">Tabasco</option>
+                                <option value="TAM">Tamaulipas</option>
+                                <option value="TLX">Tlaxcala</option>
+                                <option value="VER">Veracruz</option>
+                                <option value="YUC">Yucat&aacute;n</option>
+                                <option value="ZAC">Zacatecas</option>                                
+                            </select>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="ciudad">Ciudad</label>
+                            <input id="ciudad" name="ciudad" placeholder="Ciudad" type="text" required>
+                        </div>
+                        <div class="bona-input-wrapper">
+                            <label class="visuallyhidden" for="colonia">Colonia</label>
+                            <select id="colonia" name="colonia" required>
+                                <option value="">Colonia</option>
+                            </select>
                         </div>
                         <div class="bona-input-wrapper">                            
                             <button type="submit">Enviar</button>
                         </div>
                     </form>
-                </div>                
-                <div class="bona-subsection bona-arrow-icon" id="finform" hidden>
+                </div>-->                
+                <div class="bona-subsection bona-arrow-icon" id="finform">
                     <figure class="bona-img-wrapper">
                         <img src="assets/check.svg" alt="">
                     </figure>
                     <h2>Tu recolecci&oacute;n fue agendada</h2>
-                    <p class="bona-text-centered">Recuerda que s&oacute;lo es posible recolectar tus tapas is tienes programado un pedido</p>
+                    <p class="bona-text-centered">Nos pondremos en contacto contigo para programar
+                        la visita, recuerda que solo es posible recolectar
+                        tus tapas si tienes programado un pedido.</p>
+                    <p class="bona-text-centered"><strong>No olvides que tienes hasta el 14 de noviembre para
+                        seguir apoyando en la lucha contra este padecimiento. </strong></p>
                 </div>
             </section>
             <footer>
                 <h3>Nuestra Alianza</h3>
-                <p class="bona-text-centered">A lo largo de 5 años, en conjunto con Fundaci&oacute;n CIMA, hemos logrado ayudar a más de 100 mujeres de manera activa, con tratamientos
-                    y estudios preventivos, como mastografías y ultrasonidos mamarios, adem&aacute;s de contar con grupos de apoyo emocional.
-                </p>
+                <div class="bona-footer-wrapper">
+                    <figure>
+                        <img src="/assets/logocima.svg" alt="Logo Bonafont con Fundación Cima">
+                    </figure>
+                    <div class="bona-footer-text-wrapper">
+                        <p>A lo largo de 5 años, en conjunto con Fundaci&oacute;n CIMA, hemos logrado ayudar a más de 100 mujeres de manera activa, con tratamientos
+                            y estudios preventivos, como mastografías y ultrasonidos mamarios, adem&aacute;s de contar con grupos de apoyo emocional.
+                        </p>
+                        <p>Si detectaste alguna anomalía, puedes comunicarte a la <strong>Fundación CIMA</strong> para recibir la orientación necesaria: 
+                            <strong><a href="tel:+525555749058">55 5574 9058</a></strong>, <strong><a href="tel:+525555749073">55 5574 9073</a></strong> y <strong><a href="tel:+525528552367">55 2855 2367</a></strong> o mandar un correo a <strong><a href="mailto:info@cimafundación.org">info@cimafundación.org</a></strong> </p>
+                    </div>
+                </div>               
             </footer>
         </article>       
     </main>
