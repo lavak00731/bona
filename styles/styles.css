@@ -365,14 +365,6 @@
         align-items: flex-start;
         justify-items: center;
     }
-    .bona-title-wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-start;
-      align-content: flex-start;
-    }
-
     .bona-actions {
       display: flex;
       flex-direction: row;
@@ -433,19 +425,14 @@
       margin-bottom: 1rem;
     }
     .bona-header-text-wrapper {
-      width: 56%;
-      margin: 0 auto;
+      width: 55%;
+      margin-left: 42%;
     }
-    .bona-simbolic {
-      display: block;
-      width: 43%;
-      max-height: 249px;
-      overflow: hidden;
-    }
-    .bona-simbolic img {
-      object-fit: contain;
-      object-position: top;
-      height: auto;
+    .bona-title-wrapper {
+      background-image: url('/assets/headerimage.jpg');
+      background-repeat: no-repeat;
+      background-size: 93%;
+      background-position: left center;
     }
     .bona-localization-comp {
       width: 80%;
