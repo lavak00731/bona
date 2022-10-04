@@ -91,6 +91,52 @@ function getBoundsZoomLevel(bounds, mapDim) {
     return Math.min(latZoom, lngZoom, ZOOM_MAX);
 }
 
+// Converts numeric degrees to radians
+function toRad(Value)
+{
+    return Value * Math.PI / 180;
+}
+
+function toDeg (Value) {
+    return Value * 180 / Math.PI;
+}
+
+//-- Define middle point function
+function middlePoint(lat1, lng1, lat2, lng2) {
+
+    //-- Longitude difference
+    var dLng = toRad(lng2 - lng1);
+
+    //-- Convert to radians
+    lat1 = toRad(lat1);
+    lat2 = toRad(lat2);
+    lng1 = toRad(lng1);
+
+    var bX = Math.cos(lat2) * Math.cos(dLng);
+    var bY = Math.cos(lat2) * Math.sin(dLng);
+    var lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + bX) * (Math.cos(lat1) + bX) + bY * bY));
+    var lng3 = lng1 + Math.atan2(bY, Math.cos(lat1) + bX);
+
+    //-- Return result
+    return {lat:toDeg(lat3),lng:toDeg(lng3)};
+}
+
+//This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
+function calcCrow(lat1, lon1, lat2, lon2)
+{
+    var R = 6371; // km
+    var dLat = toRad(lat2-lat1);
+    var dLon = toRad(lon2-lon1);
+    var lat1 = toRad(lat1);
+    var lat2 = toRad(lat2);
+
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
+    return d;
+}
+
 function getClosestStore(lng,lat) {
     $.ajax({
         type: "POST",
@@ -104,15 +150,25 @@ function getClosestStore(lng,lat) {
         success: function(response) {
             console.log(response)
             if(response.closestStore) {
+                let myPosition = {lat: lat, lng: lng};
+                let storePosition = {lat: response.closestStore.latitude, lng: response.closestStore.longitude};
                 console.log('Closest store: ' , response.closestStore);
-                var bounds = new google.maps.LatLngBounds(
-                    new google.maps.LatLng({lat: lat, lng: lng}),
-                    new google.maps.LatLng({lat: response.closestStore.latitude, lng: response.closestStore.longitude})
-                );
 
-                map.setCenter(bounds.getCenter());
-                map.panTo(bounds.getCenter());
-                map.setZoom(12);
+                var midPoint = middlePoint(myPosition.lat, myPosition.lng, storePosition.lat,storePosition.lng);
+                var distance = calcCrow(myPosition.lat, myPosition.lng, storePosition.lat,storePosition.lng) * 1000;
+                console.log(distance);
+
+
+                var circle = new google.maps.Circle({radius: distance/2, center: new google.maps.LatLng(midPoint)});
+
+                // map.panTo(new google.maps.LatLng(midPoint));
+                map.fitBounds(circle.getBounds());
+
+                // map.setCenter({lat: lat, lng: lng});
+
+                // map.panTo(new google.maps.LatLng({lat: lat, lng: lng}));
+                // map.panTo(new google.maps.LatLng({lat: response.closestStore.latitude, lng: response.closestStore.longitude}));
+                // map.setZoom(12);
                 // map.fitBounds(bounds);
                 // map.panTo(myCenter);
                 // var newCenterMarker = new google.maps.Marker({
@@ -133,6 +189,30 @@ function showPosition(position) {
     getClosestStore(position.coords.longitude, position.coords.latitude);
 }
 
+function searchByPostalCode(postalCode) {
+
+    //get lat and longitude from postal code
+    $.ajax({
+        type: "POST",
+        url: '/controller.php',
+        data: {
+            action: "get_lat_lng",
+            postal_code: postalCode
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log('GET LAT LNG:',response)
+            if(response.lat && response.lng) {
+                //search nearest store and display map
+                getClosestStore(response.lng, response.lat);
+            }
+        },
+        error: function(response) {
+            console.log('error');
+        }
+    });
+}
+
 (function () {
 
     function scrollHandling(e) {
@@ -151,6 +231,13 @@ function showPosition(position) {
     $('#share-location').on('click',function(){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition)
+        }
+    });
+
+    $('#localizar').on('submit', function(e) {
+        e.preventDefault();
+        if($('#cp').val()) {
+            searchByPostalCode($('#cp').val());
         }
     });
 
