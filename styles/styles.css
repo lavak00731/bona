@@ -51,15 +51,15 @@
   /* Custom Styles */
   @font-face {
       font-family: 'GalanoGrotesq';
-      src: url('/fonts/GalanoGrotesqueRegular.otf');
+      src: url('../fonts/GalanoGrotesqueRegular.otf');
   }
   @font-face {
       font-family: 'GalanoGrotesqBold';
-      src: url('/fonts/GalanoGrotesqueBold.otf');
+      src: url('../fonts/GalanoGrotesqueBold.otf');
   }
   @font-face {
       font-family: 'GalanoGrotesqBoldItalic';
-      src: url('/fonts/GalanoGrotesqueBoldItalic.otf');
+      src: url('../fonts/GalanoGrotesqueBoldItalic.otf');
   }
   :root {
      --main-font: 'GalanoGrotesq';
@@ -78,9 +78,9 @@
      --right-hand-bckgrd: #f9d9cf;
      --border-input: #edabb3;
      --placeholder-text-color: #c0b2b4;
-     --select-dd: url('/assets/arrowdown.svg');
-     --mainbackground: url('/assets/mainbackground.svg');
-     --footerbckgrd: url('/assets/footerbckgrd.svg');
+     --select-dd: url('../assets/arrowdown.svg');
+     --mainbackground: url('../assets/mainbackground.svg');
+     --footerbckgrd: url('../assets/footerbckgrd.svg');
   }
   body {
     font-family: var(--main-font), sans-serif;
@@ -100,6 +100,15 @@
   figure > iframe {
       max-width: 100%;
   }
+  #map {
+    height: 300px;
+    width: 100%;
+    border:0;
+  }
+  #map > iframe {
+    max-width: 100%;
+  }
+
   .bona-header-text-wrapper {
       padding: 1rem 0;      
   }  
@@ -120,7 +129,7 @@
     display: inline-block;
     width: 3.2rem;
     height: 2rem;
-    background: url('/assets/cima.svg') no-repeat left top;
+    background: url('../assets/cima.svg') no-repeat left top;
     background-size: contain;
     vertical-align: text-top;
     margin-bottom: -0.6rem;
@@ -476,6 +485,7 @@
     .bona-footer-wrapper .bona-footer-text-wrapper {
       width: calc( 100% - 180px );
     }
+
     #finform .bona-text-centered {
       max-width: 60%;
     }
@@ -496,7 +506,7 @@
       width: 56%;
     }
     .bona-title-wrapper {
-      background-image: url('/assets/headerimage.svg');
+      background-image: url('../assets/headerimage.svg');
       background-repeat: no-repeat;
       background-size: 93%;
       background-position: left center;
