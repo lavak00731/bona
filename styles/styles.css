@@ -74,12 +74,12 @@
      --text-shadow: #ab787d;
      --main-background-color: #fae5e7;
      --white-text: #fffbfb;
-     --footer-bckgr-color: #f9dad7;
      --right-hand-bckgrd: #f9d9cf;
      --border-input: #edabb3;
      --placeholder-text-color: #c0b2b4;
+     --footer-bck-color-mobile: #f9dcda;
      --select-dd: url('../assets/arrowdown.svg');
-     --mainbackground: url('../assets/mainbackground.svg');
+     --mainbackground: url('../assets/mainbckimage.svg');
      --footerbckgrd: url('../assets/footerbckgrd.svg');
   }
   body {
@@ -148,6 +148,7 @@
     background-color: var(--counter-bckgrd);
     text-align: left;
     position: relative;
+    z-index: 5;
   }  
   .bona-secondary-banner h2 {
       color: var(--white);
@@ -199,7 +200,7 @@
     background-color: var(--background-color-btn);
     color: var(--white-text);
     text-align: center;
-    padding: 0.8rem 1rem;
+    padding: 0.7rem 1rem;
     font-weight: 500;
     width: 12rem;
     margin: 0 0 1rem;
@@ -208,7 +209,7 @@
   }
   .bona-subsection button img {
     position: absolute;
-    right: 5%;
+    right: 13%;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -240,7 +241,8 @@
     background-image: var(--mainbackground);
     background-position: bottom right;
   }
-  .bona-side-container:nth-child(2) #autoexplorate p {
+  .bona-side-container:nth-child(2) #autoexplorate p,
+  .bona-side-container p {
     margin-bottom: 2.5rem;
   }
   .bona-text-centered {
@@ -256,10 +258,8 @@
     flex-wrap: wrap;
   }
   .bona-section-footer button > img {
-    width: 2rem;
+    width: 1.8rem;
     height: auto;
-    vertical-align: middle;
-    margin-left: 0.5rem;
   } 
   
   .bona-subsection:nth-child(3),
@@ -275,7 +275,7 @@
   }
   .bona-map-wrapper,
   .bona-share-position-wrapper {
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
   }
   .bona-share-position-wrapper button {
     width: auto;
@@ -290,10 +290,10 @@
   
   input, select{
     background-color: var(--white);
-    padding: 0.7rem 0.6rem;
+    padding: 0.55rem 0.6rem;
     border: 2px solid var(--border-input);
     border-radius: 5px;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1rem;
     width: 100%;
     text-align: left;
   }
@@ -355,8 +355,9 @@
     max-width: 80%;
   }
   footer {
-    background: var(--footer-bckgr-color) var(--footerbckgrd) no-repeat bottom left;
+    background: var(--footer-bck-color-mobile) var(--footerbckgrd) no-repeat bottom left;
     background-size: cover;
+    margin-top: -5px;
   }
   footer h3 {
     font-family: var(--font-bold);
@@ -390,6 +391,12 @@
     .bona-side-container:first-child, .bona-side-container:nth-child(2) {
       background-size: contain;
     }
+    .bona-secondary-banner h2 {
+      margin-left: 40%;
+    }
+    .bona-secondary-banner figure {
+      left: 33%;
+    }
     .bona-input-wrapper.two-elements input {
       width: 65%;
       margin-left: 0;
@@ -416,7 +423,6 @@
     .bona-header-wrapper {
       flex-direction: row;
       align-items: center;
-
   }
     .bona-header-text-wrapper {
       width: 90%;
@@ -443,6 +449,15 @@
     .bona-side-container {
       width: 50%;
     }
+    .bona-side-container.bona-bckgrd:nth-child(2) {
+      background: var(--right-hand-bckgrd);  
+    }
+    .bona-secondary-banner h2 {
+      margin-left: 25%;
+    }
+    .bona-secondary-banner figure {
+      left: 13%;
+    }
     .bona-actions .bona-subsection {
       width: 100%;
     }
@@ -454,6 +469,14 @@
     }
     .bona-map-wrapper {
       margin-bottom: 3rem;
+    }
+    .bona-side-container:first-child {
+      background-position: bottom left;
+      background-size: cover;
+    }
+    .bona-side-container:nth-child(2) {
+      background-position: bottom right;
+      background-size: cover;
     }
     .bona-subsection, footer {
       padding: 3rem 1rem;
@@ -477,15 +500,32 @@
       top: 20%;
     }
     .bona-input-wrapper.two-elements input {
-      width: 47%;
+      width: 44%;
     }
     .bona-input-wrapper.half-width {
       width: 46%;
     }
-    .bona-footer-wrapper .bona-footer-text-wrapper {
-      width: calc( 100% - 180px );
+    .bona-side-container {
+      padding-bottom: 15rem;
     }
-
+    footer {
+      margin-top: -19rem;
+      background-color: transparent;
+      z-index: 3;
+      position: relative;
+      padding-bottom: 5rem;
+    }
+    footer .bona-footer-wrapper figure {
+      margin: 9rem auto 3rem;
+      width: 135px;
+    }
+    footer h3 {
+      font-size: 1.875rem;
+    }
+    footer p {
+      width: 80%;
+      margin: 0 auto 1rem;
+    }
     #finform .bona-text-centered {
       max-width: 60%;
     }
@@ -494,9 +534,32 @@
     .bona-img-wrapper {
       width: 135px;
     }
+    header {
+      padding: 0;
+    }
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      max-width: 95%;
+    }
+    h1 + p {
+      max-width: 80%;
+    }
+    .bona-secondary-banner h2 {
+      margin-left: 33%;
+    }
+    .bona-secondary-banner figure {
+      left: 24%;
+    }
+    .bona-side-container:nth-child(2) #autoexplorate p, 
+    .bona-side-container p {
+      max-width: 71%;
+    }
+    .bona-map-wrapper {
+      margin-bottom: 4rem;
+    }
+    .bona-share-position-wrapper {
+      margin-bottom: 4rem;
     }
     .bona-header-text-wrapper {
       width: 58%;
@@ -514,4 +577,10 @@
     .bona-localization-comp {
       width: 80%;
     }    
+    footer {
+      padding: 4.4rem 0 5rem;
+    }
+    footer p {
+      width: 65%;
+    }
 }
