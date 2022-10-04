@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Bonafont autoscan</title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="js/resize.js"></script>
 </head>
 <body>
     <main>
@@ -14,7 +16,7 @@
                 <div class="bona-title-wrapper">
                     <div class="bona-header-text-wrapper">
                         <div class="bona-header-wrapper">
-                            <figure class="bona-img-wrapper"><img src="/assets/logocima.svg" alt="Logo Bonafont con Fundación Cima"></figure>
+                            <figure class="bona-img-wrapper"><img src="assets/logocima.svg" alt="Logo Bonafont con Fundación Cima"></figure>
                             <div class="text-wrapper">
                                 <h1>En Bonafont, queremos aligerar la lucha contra el c&aacute;ncer de mama de las mujeres</h1>
                                 <p class="bona-text-centered">Por eso, en alianza con <span class="cima-logo" aria-hidden="true"></span> <span class="visuallyhidden">Fundaci&oacute;n Cima</span>, creamos <strong>Tapas que aligeran</strong>.</p>
@@ -73,7 +75,7 @@
                     </div>
                     <div class="bona-subsection bona-arrow-icon" data-remove="true" id="sucursales" hidden>
                         <figure class="bona-map-wrapper">
-                            <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10044.953955807572!2d-99.16613450480986!3d19.429407329975103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1664218339540!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div id="map"></div>
                         </figure>
                         <div class="bona-share-position-wrapper">
                             <button type="button">Compartir ubicaci&oacute;n</button>
@@ -91,7 +93,8 @@
                         </div>
                     </div>
                     <div class="bona-subsection bona-arrow-icon" data-remove="true" id="agendar" hidden>
-                        <form id="retirar" action="">
+                        <form id="retirar" >
+                            <input type="hidden" name="action" value="schedule" />
                             <p role="alert" tabIndex="-1" hidden="hidden">Un problema surgió, por favor intente enviar el formulario en unos minutos.</p>
                             <div class="bona-input-wrapper">
                                 <label class="visuallyhidden" for="nombre">Nombre y Apellidos</label>
@@ -158,7 +161,8 @@
                             <div class="bona-input-wrapper">
                                 <label class="visuallyhidden" for="colonia">Colonia</label>
                                 <select id="colonia" name="colonia" required>
-                                    <option value="">Colonia</option>
+                                    <option value="a">Colonia</option>
+                                    <option value="b">Colonia2</option>
                                 </select>
                             </div>
                             <div class="bona-input-wrapper">                            
@@ -166,7 +170,7 @@
                             </div>
                         </form>
                     </div>                
-                    <div class="bona-subsection bona-arrow-icon" id="finform" hidden>
+                    <div class="bona-subsection bona-arrow-icon" id="finform" hidden data-remove="true">
                         <figure class="bona-img-wrapper">
                             <img src="assets/check.svg" alt="">
                         </figure>
@@ -185,7 +189,7 @@
                 <h3>Nuestra Alianza</h3>
                 <div class="bona-footer-wrapper">
                     <figure>
-                        <img src="/assets/logocima.svg" alt="Logo Bonafont con Fundación Cima">
+                        <img src="assets/logocima.svg" alt="Logo Bonafont con Fundación Cima">
                     </figure>
                     <div class="bona-footer-text-wrapper">
                         <p>A lo largo de 5 años, en conjunto con Fundaci&oacute;n CIMA, hemos logrado ayudar a más de 100 mujeres de manera activa, con tratamientos
@@ -198,6 +202,11 @@
             </footer>
         </article>       
     </main>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXIhVCPBJg2teWzh8ToWI2mQ45EPbMp3s&callback=initMap&v=weekly"
+    defer
+    ></script>
     <script src="js/main.js" defer></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
