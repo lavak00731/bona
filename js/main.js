@@ -57,6 +57,7 @@ function focusOnTarget(target) {
     const targetElem = document.querySelector('#'+target);
     document.querySelectorAll('[data-remove="true"]').forEach((subsection) => subsection.setAttribute('hidden', true));
     targetElem.removeAttribute('hidden');
+    document.querySelectorAll('.bona-side-container')[1].classList.add('bona-bckgrd')
     targetElem.scrollIntoView({
         behavior: "smooth"
     });
