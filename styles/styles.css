@@ -66,6 +66,7 @@
      --font-bold:  'GalanoGrotesqBold';
      --font-bold-italic: 'GalanoGrotesqBoldItalic';
      --white: #FFF;
+     --counter-bckgrd: #d75583;
      --main-color: #f45567;
      --background-color-btn: #f19f85;
      --background-color-btn-hover: #f7efed;
@@ -78,6 +79,8 @@
      --border-input: #edabb3;
      --placeholder-text-color: #c0b2b4;
      --select-dd: url('/assets/arrowdown.svg');
+     --mainbackground: url('/assets/mainbackground.svg');
+     --footerbckgrd: url('/assets/footerbckgrd.svg');
   }
   body {
     font-family: var(--main-font), sans-serif;
@@ -85,10 +88,12 @@
     line-height: 1.5;
     color: var(--main-color);
   }
+  header {
+    padding: 0 1rem;
+  }
   main {
       max-width: 1330px;
-      margin: 0 auto;
-      padding: 0 1rem;      
+      margin: 0 auto; 
   }
 
   figure > img,
@@ -100,8 +105,8 @@
   }  
   .bona-header-wrapper {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-start;
       align-content: space-between;
       justify-content: space-between;
   }
@@ -109,7 +114,7 @@
     display: none;
   }
   .bona-img-wrapper {
-      width: 90px;
+      width: 110px;
   }
   .cima-logo {
     display: inline-block;
@@ -118,6 +123,7 @@
     background: url('/assets/cima.svg') no-repeat left top;
     background-size: contain;
     vertical-align: text-top;
+    margin-bottom: -0.6rem;
   }
   h1 {
       font-family: var(--font-bold-italic);
@@ -130,14 +136,23 @@
     width: 100%;
   }
   .bona-secondary-banner {
-    background-color: var(--background-color-btn);
-    text-align: center;
+    background-color: var(--counter-bckgrd);
+    text-align: left;
+    position: relative;
   }  
   .bona-secondary-banner h2 {
       color: var(--white);
       font-size: 1rem;
-      padding: 1rem 0;
+      padding: 0.3rem 0;
       text-shadow: 1px 2px var(--text-shadow);
+      margin-left: calc( 34% - 3rem );
+  }
+  .bona-secondary-banner figure {
+    width: 3rem;
+    position: absolute;
+    left: calc( 23% - 4rem );
+    top: 50%;
+    transform: translateY(-50%);
   }
   strong {
       font-family: var(--font-bold);
@@ -178,7 +193,7 @@
     font-weight: 500;
     width: 12rem;
     margin: 0 0 1rem;
-    border-radius: 0.3rem;
+    border-radius: 2.3rem;
     position: relative;
   }
   .bona-subsection button img {
@@ -201,8 +216,19 @@
   .bona-subsection p {
     margin-bottom: 1rem;
   }
+  .bona-side-container:first-child,
+  .bona-side-container:nth-child(2) {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--main-background-color);
+  }
   .bona-side-container:first-child {
-    background-color: var(--main-background-color)
+    background-image: var(--mainbackground);
+    background-position: bottom left;
+  }
+  .bona-side-container:nth-child(2) {
+    background-image: var(--mainbackground);
+    background-position: bottom right;
   }
   .bona-side-container:nth-child(2) #autoexplorate p {
     margin-bottom: 2.5rem;
@@ -225,10 +251,7 @@
     vertical-align: middle;
     margin-left: 0.5rem;
   } 
-  .bona-subsection:nth-child(1),
-  .bona-subsection:nth-child(2) {
-    background-color: var(--main-background-color);    
-  }
+  
   .bona-subsection:nth-child(3),
   .bona-subsection:nth-child(4),
   .bona-subsection:nth-child(5) {
@@ -264,9 +287,13 @@
     width: 100%;
     text-align: left;
   }
+  input:focus-visible, 
+  select:focus-visible {
+    box-shadow: -1px 7px 3px #c0b2b4;
+  }
   select:invalid,
   select option[value=""] {
-    color: var(--placeholder-text-color);
+    color: rgba(192, 178, 180, 0.6);;
   }
   select {
     background-image: var(--select-dd);
@@ -286,6 +313,7 @@
   .bona-input-wrapper.half-width button,
   .bona-subsection button.width-auto {
     width: 9rem;
+    border-radius: 0.3rem;
   }
   .bona-input-wrapper.two-elements{
     display:flex;
@@ -302,28 +330,39 @@
     color: var(--placeholder-text-color);
   }
   ::placeholder {
-    color: var(--placeholder-text-color);;
+    color: var(--placeholder-text-color);
   }
   .bona-localization-comp {
     width: 100%;
   }
+  #finform {
+    padding: 3rem 0 5rem;
+  }
+  #finform .bona-img-wrapper {
+    width: 33%;
+  }
+  #finform p {
+    max-width: 80%;
+  }
   footer {
-    background-color: var(--footer-bckgr-color);
+    background: var(--main-background-color) var(--footerbckgrd) no-repeat bottom left;
+    background-size: cover;
   }
   footer h3 {
     font-family: var(--font-bold);
     font-size: 1rem;
     color: var(--white);
     text-transform: uppercase;
-    margin: 0 0 1rem;
+    margin: 0 auto 1rem;
+    text-align: center;
   }
   footer p {
     color: var(--white);
     margin-bottom: 1rem;
   }
   footer .bona-footer-wrapper  figure{
-    width: 90px;
-    margin: 0 auto 2rem;
+    width: 110px;
+    margin: 5rem auto 2rem;
   }
   .mobile-only {
     display: inline;
@@ -344,27 +383,14 @@
     }
     .bona-subsection button.width-auto {
       width: auto;
-    }
+    }    
     .bona-map-wrapper,
     .bona-localization-comp {
       width: 60%;
       margin: 0 auto 2rem;
     }
-    .bona-footer-wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-content: flex-start;
-    }
-    .bona-footer-wrapper {
-      align-items: center;
-    }
-    .bona-footer-wrapper .bona-footer-text-wrapper {
-      width: calc( 100% - 150px );
-    }
-    .bona-input-wrapper.half-width button {
-      width: 12rem;
-    }
+    .bona-input-wrapper.half-width button, .bona-subsection button.width-auto {
+      width: 13rem;
   }
   @media (min-width: 1024px) {
     main {
