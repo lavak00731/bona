@@ -74,7 +74,7 @@
      --text-shadow: #ab787d;
      --main-background-color: #fae5e7;
      --white-text: #fffbfb;
-     --footer-bckgr-color: #e1839b;
+     --footer-bckgr-color: #f9dad7;
      --right-hand-bckgrd: #f9d9cf;
      --border-input: #edabb3;
      --placeholder-text-color: #c0b2b4;
@@ -149,6 +149,7 @@
   }
   .bona-secondary-banner figure {
     width: 3rem;
+    height: 3rem;
     position: absolute;
     left: calc( 23% - 4rem );
     top: 50%;
@@ -345,7 +346,7 @@
     max-width: 80%;
   }
   footer {
-    background: var(--main-background-color) var(--footerbckgrd) no-repeat bottom left;
+    background: var(--footer-bckgr-color) var(--footerbckgrd) no-repeat bottom left;
     background-size: cover;
   }
   footer h3 {
@@ -377,6 +378,9 @@
     .tablet-on {
       display: inline;
     }
+    .bona-side-container:first-child, .bona-side-container:nth-child(2) {
+      background-size: contain;
+    }
     .bona-input-wrapper.two-elements input {
       width: 65%;
       margin-left: 0;
@@ -391,6 +395,7 @@
     }
     .bona-input-wrapper.half-width button, .bona-subsection button.width-auto {
       width: 13rem;
+    }
   }
   @media (min-width: 1024px) {
     main {
