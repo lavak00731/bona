@@ -112,18 +112,14 @@
   .bona-header-text-wrapper {
       padding: 1rem 0;      
   }  
-  .bona-header-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      align-content: space-between;
-      justify-content: space-between;
-  }
   .bona-simbolic {
     display: none;
   }
   .bona-header-wrapper .bona-img-wrapper {
-    margin-bottom: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    width: 90px;
   }
   .bona-img-wrapper {
       width: 110px;
@@ -144,9 +140,11 @@
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 1rem;
+      width: calc( 100% - 110px );
   }
   .text-wrapper {
     width: 100%;
+    position: relative;
   }
   .bona-secondary-banner {
     background-color: var(--counter-bckgrd);
@@ -393,6 +391,15 @@
     .tablet-on {
       display: inline;
     }
+    .bona-header-wrapper .bona-img-wrapper {
+      position: static;
+    }
+    .bona-header-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
     .bona-side-container:first-child, .bona-side-container:nth-child(2) {
       background-size: contain;
     }
@@ -422,6 +429,7 @@
     main {
       padding: 0;
     }
+    .bona-header-wrapper .bona-img-wrapper,
     .bona-img-wrapper {
       width: 110px;
     }
@@ -429,15 +437,13 @@
       flex-direction: row;
       align-items: center;
     }
-    .bona-header-wrapper .bona-img-wrapper {
-      order: 2;
-    }
     .bona-header-text-wrapper {
       width: 90%;
       margin: 0 auto
     }   
     h1 {
         font-size: 1.5rem;
+        width: 100%;
     }
     .text-wrapper {
       width: calc( 96% - 110px );
@@ -567,7 +573,7 @@
       margin-bottom: 4rem;
     }
     .bona-share-position-wrapper {
-      margin-bottom: 4rem;
+      margin-bottom: 1rem;
     }
     .bona-header-text-wrapper {
       width: 58%;
