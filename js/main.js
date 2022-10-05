@@ -54,11 +54,15 @@ function resizeFrame() {
     }
 }
 
-function focusOnTarget(target) {
+function focusOnTarget(target, isComingToAutoexplore) {
     const targetElem = document.querySelector('#'+target);
     document.querySelectorAll('[data-remove="true"]').forEach((subsection) => subsection.setAttribute('hidden', true));
-    targetElem.removeAttribute('hidden');
-    document.querySelectorAll('.bona-side-container')[1].classList.add('bona-bckgrd')
+    if(isComingToAutoexplore) {
+        document.querySelectorAll('.bona-side-container')[1].classList.remove('bona-bckgrd');
+    } else {
+        document.querySelectorAll('.bona-side-container')[1].classList.add('bona-bckgrd');
+    }
+    targetElem.removeAttribute('hidden');    
     targetElem.scrollIntoView({
         behavior: "smooth"
     });
@@ -227,7 +231,7 @@ function searchByPostalCode(postalCode) {
 
 function scrollHandling(e) {
     const target = e.target.dataset.target;
-    focusOnTarget(target)
+    focusOnTarget(target, true);
 }
 
 function pad(num, size) {

@@ -81,6 +81,7 @@ textarea {
   --select-dd: url('../assets/arrowdown.svg');
   --mainbackground: url('../assets/mainbckimage.svg');
   --footerbckgrd: url('../assets/footerbckgrd.svg');
+  --bonafont-casa: url('../assets/LOGOTIPO-BEC-BONAFONT-EN-TU-CASA_SALMON.png');
 }
 body {
   font-family: var(--main-font), sans-serif;
@@ -217,7 +218,7 @@ footer {
     animation-name: dissolve;
   }
 }
-.bona-subsection button {
+.bona-subsection button, .button {
   background-color: var(--background-color-btn);
   color: var(--white-text);
   text-align: center;
@@ -228,19 +229,17 @@ footer {
   border-radius: 2.3rem;
   position: relative;
 }
-
 .bona-subsection button.back {
   padding: 0.3rem 0.5rem;
   width: auto;
   background-color:#d75583;
-}
-
-.bona-subsection button img {
-  vertical-align: middle;
-  margin-left: .5rem;
+  position: relative;
+  right: -35%;
 }
 .bona-subsection button:hover,
-.bona-subsection button:focus-visible {
+.bona-subsection button:focus-visible,
+.button:hover,
+.button:focus-visible {
   background-color: var(--background-color-btn-hover);
   color: var(--button-text-hover-color);
 }
@@ -283,9 +282,14 @@ footer {
   width: 100%;
   flex-wrap: wrap;
 }
-.bona-section-footer button > img {
+.bona-section-footer .button {
+  padding: 0.515rem 1rem;
+}
+.bona-section-footer .button > img {
   width: 1.8rem;
   height: auto;
+  vertical-align: middle;
+  margin-left: .5rem;
 }
 
 .bona-subsection:nth-child(3),
@@ -410,6 +414,16 @@ footer .bona-footer-wrapper  figure{
 .tablet-on {
   display: none;
 }
+.img-bona-llegamos {
+  width: 7rem;
+  height: 4rem;
+  background: var(--bonafont-casa) no-repeat left center;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -1rem;
+  
+}
 @media (min-width: 768px) {
   .mobile-only {
     display: none;
@@ -485,9 +499,16 @@ footer .bona-footer-wrapper  figure{
     display: flex;
     flex-direction: row;
     align-content: flex-start;
+    background-image: var(--mainbackground);
+    background-color: var(--main-background-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
   }
-  .bona-side-container {
+  .bona-actions .bona-side-container {
     width: 50%;
+    background-image: none;
+    background-color: transparent;
   }
   .bona-side-container.bona-bckgrd:nth-child(2) {
     background: var(--right-hand-bckgrd);
@@ -509,14 +530,6 @@ footer .bona-footer-wrapper  figure{
   }
   .bona-map-wrapper {
     margin-bottom: 3rem;
-  }
-  .bona-side-container:first-child {
-    background-position: bottom left;
-    background-size: cover;
-  }
-  .bona-side-container:nth-child(2) {
-    background-position: bottom right;
-    background-size: cover;
   }
   .bona-subsection, footer {
     padding: 3rem 1rem;
