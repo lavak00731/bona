@@ -1,6 +1,7 @@
 let iframeChannelReady = false;
 let iframeResizeEventReceived = false;
 let resizeAttempts = 0;
+let myLocation = null;
 
 if (window.addEventListener) {
     window.addEventListener("message", onMessage, false);
@@ -152,6 +153,16 @@ function getClosestStore(lng,lat) {
             console.log(response)
             if(response.closestStore) {
                 let myPosition = {lat: lat, lng: lng};
+                if(myLocation) {
+                    myLocation.setPosition(new google.maps.LatLng(lat, lng));
+                } else {
+                    myLocation = new google.maps.Marker( {
+                        position: new google.maps.LatLng(lat, lng),
+                        title: 'My Location',
+                        map: map
+                    });
+                }
+
                 let storePosition = {lat: response.closestStore.latitude, lng: response.closestStore.longitude};
                 console.log('Closest store: ' , response.closestStore);
 
@@ -214,12 +225,90 @@ function searchByPostalCode(postalCode) {
     });
 }
 
+function scrollHandling(e) {
+    const target = e.target.dataset.target;
+    focusOnTarget(target)
+}
+
+function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+}
+function numberWithThousands(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+function resetForm() {
+    $(':input','#retirar')
+        .not(':button, :submit, :reset, :hidden')
+        .val('')
+        .prop('checked', false)
+        .prop('selected', false);
+}
+
+function validateZip() {
+    $('#cpform').removeClass('zip-error');
+    $('#cpform').removeClass('zip-ok');
+    const zip = $('#cpform').val();
+    if(zip == '') {
+        $('#send').click();
+        return;
+    }
+    loadColonies(true);
+}
+
+function loadColonies(validating) {
+    $("#colonia").empty();
+    $("#colonia").append($('<option>', {value: '', text: 'Seleccionar Colonia'}));
+    $("#ciudad").val('');
+    $("#city").val('');
+    $("#estado").val('');
+    $("#state").val('');
+
+    const zip = $('#cpform').val();
+    if(zip == '') {
+        return;
+    }
+    //get colonies list
+    $.ajax({
+        type: "POST",
+        url: '/controller.php',
+        data: {
+            action: "get_colonies",
+            zip: zip,
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log(response)
+            if(validating) {
+                if(response.colonies.length > 0) {
+                    $('#cpform').removeClass('zip-error');
+                    $('#cpform').addClass('zip-ok');
+                } else {
+                    $('#cpform').removeClass('zip-ok');
+                    $('#cpform').addClass('zip-error');
+                    $('#cpform').focus();
+                    alert('El zip code ingresado es inválido');
+                }
+            }
+            if(response.colonies.length > 0) {
+                $("#estado").val(atob(response.state));
+                $("#state").val(atob(response.state));
+                $("#ciudad").val(atob(response.city));
+                $("#city").val(atob(response.city));
+                $.each(response.colonies, function (i, item) {
+                    $("#colonia").append($('<option>', {value: atob(item.name), text: atob(item.name)}));
+                });
+            }
+        },
+        error: function(response) {
+            console.log('error');
+        }
+    });
+}
+
 (function () {
 
-    function scrollHandling(e) {
-        const target = e.target.dataset.target;
-        focusOnTarget(target)
-    }
+    resizeFrame();
 
     document.querySelectorAll('button[data-target]').forEach((elem) => {
         elem.addEventListener('click', scrollHandling);
@@ -234,6 +323,10 @@ function searchByPostalCode(postalCode) {
             navigator.geolocation.getCurrentPosition(showPosition)
         }
     });
+    $('#validate-zip').on('click',function(){
+        validateZip();
+    });
+
 
     $('#localizar').on('submit', function(e) {
         e.preventDefault();
@@ -242,8 +335,21 @@ function searchByPostalCode(postalCode) {
         }
     });
 
+    $('#cpform').on('change', function(e) {
+        loadColonies(true);
+    });
+    $('#cpform').on('keyup', function(e) {
+        loadColonies(false);
+    });
+
     $('#retirar').on('submit', function(e) {
         e.preventDefault();
+
+        if($('#colonia').val() == '') {
+            validateZip();
+            $('#cpform').focus();
+            return false;
+        }
         $.ajax({
             type: "POST",
             url: '/controller.php',
@@ -260,5 +366,15 @@ function searchByPostalCode(postalCode) {
         });
     })
 
-    resizeFrame();
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).data('count')
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(numberWithThousands(Math.ceil(now)));
+            }
+        });
+    });
 })();

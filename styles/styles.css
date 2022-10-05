@@ -2,599 +2,625 @@
 
 /* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
 *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
-    all: unset;
-    display: revert;
-  }
-  
-  /* Preferred box-sizing value */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
-  /*
-    Remove list styles (bullets/numbers)
-    in case you use it with normalize.css
-  */
-  ol, ul {
-    list-style: none;
-  }
-  
-  /* For images to not be able to exceed their container */
-  img {
-    max-width: 100%;
-  }
-  
-  /* Removes spacing between cells in tables */
-  table {
-    border-collapse: collapse;
-  }
-  
-  /* Revert the 'white-space' property for textarea elements on Safari */
-  textarea {
-    white-space: revert;
-  }
-  [hidden] {
-    display: none!important;
-  }
+  all: unset;
+  display: revert;
+}
 
-  .visuallyhidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-  /* Custom Styles */
-  @font-face {
-      font-family: 'GalanoGrotesq';
-      src: url('../fonts/GalanoGrotesqueRegular.otf');
-  }
-  @font-face {
-      font-family: 'GalanoGrotesqBold';
-      src: url('../fonts/GalanoGrotesqueBold.otf');
-  }
-  @font-face {
-      font-family: 'GalanoGrotesqBoldItalic';
-      src: url('../fonts/GalanoGrotesqueBoldItalic.otf');
-  }
-  :root {
-     --main-font: 'GalanoGrotesq';
-     --font-bold:  'GalanoGrotesqBold';
-     --font-bold-italic: 'GalanoGrotesqBoldItalic';
-     --white: #FFF;
-     --counter-bckgrd: #d75583;
-     --main-color: #f45567;
-     --background-color-btn: #f19f85;
-     --background-color-btn-hover: #f7efed;
-     --button-text-hover-color: #c0b2b4;
-     --text-shadow: #ab787d;
-     --main-background-color: #fae5e7;
-     --white-text: #fffbfb;
-     --right-hand-bckgrd: #f9d9cf;
-     --border-input: #edabb3;
-     --placeholder-text-color: #c0b2b4;
-     --footer-bck-color-mobile: #f9dcda;
-     --select-dd: url('../assets/arrowdown.svg');
-     --mainbackground: url('../assets/mainbckimage.svg');
-     --footerbckgrd: url('../assets/footerbckgrd.svg');
-  }
-  body {
-    font-family: var(--main-font), sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--main-color);
-  }
-  header {
-    padding: 0 1rem;
-  }
-  main {
-      max-width: 1330px;
-      margin: 0 auto; 
-  }
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  figure > img,
-  figure > iframe {
-      max-width: 100%;
-  }
-  #map {
-    height: 300px;
-    width: 100%;
-    border:0;
-  }
-  #map > iframe {
-    max-width: 100%;
-  }
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it with normalize.css
+*/
+ol, ul {
+  list-style: none;
+}
 
-  .bona-header-text-wrapper {
-      padding: 1rem 0;      
-  }  
-  .bona-simbolic {
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+[hidden] {
+  display: none!important;
+}
+
+.visuallyhidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* Custom Styles */
+@font-face {
+  font-family: 'GalanoGrotesq';
+  src: url('../fonts/GalanoGrotesqueRegular.otf');
+}
+@font-face {
+  font-family: 'GalanoGrotesqBold';
+  src: url('../fonts/GalanoGrotesqueBold.otf');
+}
+@font-face {
+  font-family: 'GalanoGrotesqBoldItalic';
+  src: url('../fonts/GalanoGrotesqueBoldItalic.otf');
+}
+:root {
+  --main-font: 'GalanoGrotesq';
+  --font-bold:  'GalanoGrotesqBold';
+  --font-bold-italic: 'GalanoGrotesqBoldItalic';
+  --white: #FFF;
+  --counter-bckgrd: #d75583;
+  --main-color: #f45567;
+  --background-color-btn: #f19f85;
+  --background-color-btn-hover: #f7efed;
+  --button-text-hover-color: #c0b2b4;
+  --text-shadow: #ab787d;
+  --main-background-color: #fae5e7;
+  --white-text: #fffbfb;
+  --right-hand-bckgrd: #f9d9cf;
+  --border-input: #edabb3;
+  --placeholder-text-color: #c0b2b4;
+  --footer-bck-color-mobile: #f9dcda;
+  --select-dd: url('../assets/arrowdown.svg');
+  --mainbackground: url('../assets/mainbckimage.svg');
+  --footerbckgrd: url('../assets/footerbckgrd.svg');
+}
+body {
+  font-family: var(--main-font), sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--main-color);
+}
+header {
+  padding: 0 1rem;
+}
+main {
+  max-width: 1330px;
+  margin: 0 auto;
+}
+
+figure > img,
+figure > iframe {
+  max-width: 100%;
+}
+#map {
+  height: 300px;
+  width: 100%;
+  border:0;
+}
+#map > iframe {
+  max-width: 100%;
+}
+
+.bona-header-text-wrapper {
+  padding: 1rem 0;
+}
+.bona-simbolic {
+  display: none;
+}
+.bona-header-wrapper .bona-img-wrapper {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  width: 90px;
+}
+.bona-img-wrapper {
+  width: 110px;
+}
+.cima-logo {
+  display: inline-block;
+  width: 3.2rem;
+  height: 2rem;
+  background: url('../assets/cima.svg') no-repeat left top;
+  background-size: contain;
+  vertical-align: text-top;
+  margin-bottom: -0.6rem;
+}
+.infowindow {
+  color:#222;
+  text-align: left;
+}
+.infowindow b {
+  font-weight: bold;
+}
+button {
+  cursor: pointer;
+}
+
+.zip-error {
+  color: red !important;
+}
+
+.zip-ok {
+  color: green !important;
+}
+
+h1 {
+  font-family: var(--font-bold-italic);
+  font-size: 1rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+  width: calc( 100% - 110px );
+}
+.text-wrapper {
+  width: 100%;
+  position: relative;
+}
+.bona-secondary-banner {
+  background-color: var(--counter-bckgrd);
+  text-align: left;
+  position: relative;
+  z-index: 5;
+}
+.bona-secondary-banner h2 {
+  color: var(--white);
+  font-size: 1rem;
+  padding: 0.3rem 0;
+  text-shadow: 1px 2px var(--text-shadow);
+  margin-left: calc( 34% - 3rem );
+}
+.bona-secondary-banner figure {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: calc( 23% - 4rem );
+  top: 50%;
+  transform: translateY(-50%);
+}
+strong {
+  font-family: var(--font-bold);
+}
+.bona-subsection,
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  padding: 2rem 1rem;
+}
+@keyframes coverAnimation {
+  from {opacity: 0; transform: translateY(-30%); z-index: -1}
+  to {opacity: 1; transform: translateY(0%); z-index: 0;}
+}
+.bona-cover {
+  width: 50%;
+  margin: 0 auto 2rem;
+}
+.bona-subsection .bona-cover {
+  animation-name: coverAnimation;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+}
+
+@media (prefers-reduced-motion) {
+  .bona-cover {
+    animation-name: dissolve;
+  }
+}
+.bona-subsection button {
+  background-color: var(--background-color-btn);
+  color: var(--white-text);
+  text-align: center;
+  padding: 0.7rem 1rem;
+  font-weight: 500;
+  width: 12rem;
+  margin: 0 0 1rem;
+  border-radius: 2.3rem;
+  position: relative;
+}
+
+.bona-subsection button.back {
+  padding: 0.3rem 0.5rem;
+  width: auto;
+  background-color:#d75583;
+}
+
+.bona-subsection button img {
+  vertical-align: middle;
+  margin-left: .5rem;
+}
+.bona-subsection button:hover,
+.bona-subsection button:focus-visible {
+  background-color: var(--background-color-btn-hover);
+  color: var(--button-text-hover-color);
+}
+.bona-subsection h2 {
+  font-family: var(--font-bold);
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.bona-subsection p {
+  margin-bottom: 1rem;
+}
+.bona-side-container:first-child,
+.bona-side-container:nth-child(2) {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--main-background-color);
+}
+.bona-side-container:first-child {
+  background-image: var(--mainbackground);
+  background-position: bottom left;
+}
+.bona-side-container:nth-child(2) {
+  background-image: var(--mainbackground);
+  background-position: bottom right;
+}
+.bona-side-container:nth-child(2) #autoexplorate p,
+.bona-side-container p {
+  margin-bottom: 2.5rem;
+}
+.bona-text-centered {
+  text-align: center;
+}
+.bona-section-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: space-between;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.bona-section-footer button > img {
+  width: 1.8rem;
+  height: auto;
+}
+
+.bona-subsection:nth-child(3),
+.bona-subsection:nth-child(4),
+.bona-subsection:nth-child(5) {
+  background-color: var(--right-hand-bckgrd);
+}
+.bona-map-wrapper iframe {
+  object-fit: cover;
+  border: 2px solid var(--border-input)!important;
+  border-radius: 5px;
+  width: 100%;
+}
+.bona-map-wrapper,
+.bona-share-position-wrapper {
+  margin: 0 0 1rem;
+  width: 300px;
+  text-align: center;
+
+}
+.bona-share-position-wrapper button {
+  width: auto;
+  padding: 0.8rem 3rem;
+}
+form {
+  width: 100%;
+}
+.bona-input-wrapper {
+  text-align: center;
+}
+
+input, select{
+  background-color: var(--white);
+  padding: 0.55rem 0.6rem;
+  border: 2px solid var(--border-input);
+  border-radius: 5px;
+  margin: 0 auto 1rem;
+  width: 100%;
+  text-align: left;
+}
+input:focus-visible,
+select:focus-visible {
+  box-shadow: -1px 7px 3px #c0b2b4;
+}
+select:invalid,
+select option[value=""] {
+  color: rgba(192, 178, 180, 0.6);;
+}
+select {
+  background-image: var(--select-dd);
+  background-repeat: no-repeat;
+  background-position: 96% center;
+  background-size: 0.8rem;
+}
+#localizar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.bona-input-wrapper.half-width {
+  width: 45%;
+}
+.bona-input-wrapper.half-width button,
+.bona-subsection button.width-auto {
+  width: 9rem;
+  border-radius: 0.3rem;
+}
+.bona-input-wrapper.two-elements{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.bona-input-wrapper.two-elements input {
+  width: 45%;
+  margin-left: 0;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: var(--placeholder-text-color);
+}
+::placeholder {
+  color: var(--placeholder-text-color);
+}
+.bona-localization-comp {
+  width: 100%;
+}
+#finform {
+  padding: 3rem 0 5rem;
+}
+#finform .bona-img-wrapper {
+  width: 33%;
+}
+#finform p {
+  max-width: 80%;
+}
+footer {
+  background: var(--footer-bck-color-mobile) var(--footerbckgrd) no-repeat bottom left;
+  background-size: cover;
+  margin-top: -5px;
+}
+footer h3 {
+  font-family: var(--font-bold);
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+footer p {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+footer .bona-footer-wrapper  figure{
+  width: 110px;
+  margin: 5rem auto 2rem;
+}
+.mobile-only {
+  display: inline;
+}
+.tablet-on {
+  display: none;
+}
+@media (min-width: 768px) {
+  .mobile-only {
     display: none;
   }
+  .tablet-on {
+    display: inline;
+  }
   .bona-header-wrapper .bona-img-wrapper {
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-    width: 90px;
+    position: static;
   }
-  .bona-img-wrapper {
-      width: 110px;
+  .bona-header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
   }
-  .cima-logo {
-    display: inline-block;
-    width: 3.2rem;
-    height: 2rem;
-    background: url('../assets/cima.svg') no-repeat left top;
+  .bona-side-container:first-child, .bona-side-container:nth-child(2) {
     background-size: contain;
-    vertical-align: text-top;
-    margin-bottom: -0.6rem;
   }
-  h1 {
-      font-family: var(--font-bold-italic);
-      font-size: 1rem;
-      line-height: 1.2;      
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 1rem;
-      width: calc( 100% - 110px );
-  }
-  .text-wrapper {
-    width: 100%;
-    position: relative;
-  }
-  .bona-secondary-banner {
-    background-color: var(--counter-bckgrd);
-    text-align: left;
-    position: relative;
-    z-index: 5;
-  }  
   .bona-secondary-banner h2 {
-      color: var(--white);
-      font-size: 1rem;
-      padding: 0.3rem 0;
-      text-shadow: 1px 2px var(--text-shadow);
-      margin-left: calc( 34% - 3rem );
+    margin-left: 40%;
   }
   .bona-secondary-banner figure {
-    width: 3rem;
-    height: 3rem;
-    position: absolute;
-    left: calc( 23% - 4rem );
-    top: 50%;
-    transform: translateY(-50%);
+    left: 33%;
   }
-  strong {
-      font-family: var(--font-bold);
+  .bona-input-wrapper.two-elements input {
+    width: 65%;
+    margin-left: 0;
   }
-  .bona-subsection,
-  footer {
-    display: flex;
-    flex-direction: column;
+  .bona-subsection button.width-auto {
+    width: auto;
+  }
+  .bona-map-wrapper,
+  .bona-localization-comp {
+    width: 60%;
+    margin: 0 auto 2rem;
+  }
+  .bona-input-wrapper.half-width button, .bona-subsection button.width-auto {
+    width: 13rem;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    padding: 0;
+  }
+  .bona-header-wrapper .bona-img-wrapper,
+  .bona-img-wrapper {
+    width: 110px;
+  }
+  .bona-header-wrapper {
+    flex-direction: row;
     align-items: center;
+  }
+  .bona-header-text-wrapper {
+    width: 90%;
+    margin: 0 auto
+  }
+  h1 {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .text-wrapper {
+    width: calc( 96% - 110px );
+  }
+  header {
+    display: flex;
+    flex-direction: row;
     align-content: space-between;
-    padding: 2rem 1rem;
+    align-items: flex-start;
+    justify-items: center;
   }
-  @keyframes coverAnimation {
-    from {opacity: 0; transform: translateY(-30%); z-index: -1}
-    to {opacity: 1; transform: translateY(0%); z-index: 0;}
+  .bona-actions {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
   }
-  .bona-cover {
+  .bona-side-container {
     width: 50%;
-    margin: 0 auto 2rem;        
   }
-  .bona-subsection .bona-cover {
-    animation-name: coverAnimation;
-    animation-duration: 3s;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
+  .bona-side-container.bona-bckgrd:nth-child(2) {
+    background: var(--right-hand-bckgrd);
   }
-
-  @media (prefers-reduced-motion) {
-    .bona-cover {
-      animation-name: dissolve;
-    }
+  .bona-secondary-banner h2 {
+    margin-left: 25%;
   }
-  .bona-subsection button {
-    background-color: var(--background-color-btn);
-    color: var(--white-text);
-    text-align: center;
-    padding: 0.7rem 1rem;
-    font-weight: 500;
-    width: 12rem;
-    margin: 0 0 1rem;
-    border-radius: 2.3rem;
-    position: relative;
+  .bona-secondary-banner figure {
+    left: 13%;
   }
-  .bona-subsection button img {
-    vertical-align: middle;
-    margin-left: .5rem;
+  .bona-actions .bona-subsection {
+    width: 100%;
   }
-  .bona-subsection button:hover, 
-  .bona-subsection button:focus-visible {
-    background-color: var(--background-color-btn-hover);
-    color: var(--button-text-hover-color);
+  .bona-map-wrapper, #retirar {
+    width: 80%;
   }
-  .bona-subsection h2 {
-    font-family: var(--font-bold);
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
+  .bona-localization-comp {
+    width: 90%;
   }
-  .bona-subsection p {
-    margin-bottom: 1rem;
-  }
-  .bona-side-container:first-child,
-  .bona-side-container:nth-child(2) {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: var(--main-background-color);
+  .bona-map-wrapper {
+    margin-bottom: 3rem;
   }
   .bona-side-container:first-child {
-    background-image: var(--mainbackground);
     background-position: bottom left;
+    background-size: cover;
   }
   .bona-side-container:nth-child(2) {
-    background-image: var(--mainbackground);
     background-position: bottom right;
+    background-size: cover;
+  }
+  .bona-subsection, footer {
+    padding: 3rem 1rem;
+  }
+  .bona-subsection h2 {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+  .bona-subsection:not(:first-child) {
+    position: relative;
+  }
+  .bona-subsection.bona-arrow-icon::before {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 90px;
+    background-color: var(--right-hand-bckgrd);
+    transform: rotate(135deg);
+    position: absolute;
+    left: -45px;
+    top: 20%;
+  }
+  .bona-input-wrapper.two-elements input {
+    width: 44%;
+  }
+  .bona-input-wrapper.half-width {
+    width: 46%;
+  }
+  .bona-side-container {
+    padding-bottom: 15rem;
+  }
+  footer {
+    margin-top: -19.5rem;
+    background-color: transparent;
+    z-index: 3;
+    position: relative;
+    padding-bottom: 5rem;
+  }
+  footer .bona-footer-wrapper figure {
+    margin: 9rem auto 3rem;
+    width: 135px;
+  }
+  footer h3 {
+    font-size: 1.875rem;
+  }
+  footer p {
+    width: 80%;
+    margin: 0 auto 1rem;
+  }
+  #finform .bona-text-centered {
+    max-width: 60%;
+  }
+}
+@media (min-width: 1300px) {
+  .bona-img-wrapper {
+    width: 135px;
+  }
+  header {
+    padding: 0;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    max-width: 95%;
+  }
+  h1 + p {
+    max-width: 80%;
+  }
+  .bona-secondary-banner h2 {
+    margin-left: 33%;
+  }
+  .bona-secondary-banner figure {
+    left: 24%;
   }
   .bona-side-container:nth-child(2) #autoexplorate p,
   .bona-side-container p {
-    margin-bottom: 2.5rem;
+    max-width: 71%;
   }
-  .bona-text-centered {
-    text-align: center;
+  .bona-map-wrapper {
+    margin-bottom: 4rem;
   }
-  .bona-section-footer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    align-content: space-between;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  .bona-section-footer button > img {
-    width: 1.8rem;
-    height: auto;
-  } 
-  
-  .bona-subsection:nth-child(3),
-  .bona-subsection:nth-child(4),
-  .bona-subsection:nth-child(5) {
-    background-color: var(--right-hand-bckgrd);
-  }
-  .bona-map-wrapper iframe {
-    object-fit: cover;
-    border: 2px solid var(--border-input)!important;
-    border-radius: 5px;
-    width: 100%;
-  }
-  .bona-map-wrapper,
   .bona-share-position-wrapper {
-    margin: 0 0 1rem;
-    width: 300px;
-    text-align: center;
-
-  }
-  .bona-share-position-wrapper button {
-    width: auto;
-    padding: 0.8rem 3rem;
-  }
-  form {
-    width: 100%;
-  }
-  .bona-input-wrapper {
-    text-align: center;
-  }
-  
-  input, select{
-    background-color: var(--white);
-    padding: 0.55rem 0.6rem;
-    border: 2px solid var(--border-input);
-    border-radius: 5px;
-    margin: 0 auto 1rem;
-    width: 100%;
-    text-align: left;
-  }
-  input:focus-visible, 
-  select:focus-visible {
-    box-shadow: -1px 7px 3px #c0b2b4;
-  }
-  select:invalid,
-  select option[value=""] {
-    color: rgba(192, 178, 180, 0.6);;
-  }
-  select {
-    background-image: var(--select-dd);
-    background-repeat: no-repeat;
-    background-position: 96% center;
-    background-size: 0.8rem;
-  }
-  #localizar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: flex-start;
-  }
-  .bona-input-wrapper.half-width {
-    width: 45%;
-  }
-  .bona-input-wrapper.half-width button,
-  .bona-subsection button.width-auto {
-    width: 9rem;
-    border-radius: 0.3rem;
-  }
-  .bona-input-wrapper.two-elements{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-  .bona-input-wrapper.two-elements input {
-    width: 45%;
-    margin-left: 0;
-  }
-  ::-webkit-input-placeholder { /* Edge */
-    color: var(--placeholder-text-color);
-  }
-  ::placeholder {
-    color: var(--placeholder-text-color);
-  }
-  .bona-localization-comp {
-    width: 100%;
-  }
-  #finform {
-    padding: 3rem 0 5rem;
-  }
-  #finform .bona-img-wrapper {
-    width: 33%;
-  }
-  #finform p {
-    max-width: 80%;
-  }
-  footer {
-    background: var(--footer-bck-color-mobile) var(--footerbckgrd) no-repeat bottom left;
-    background-size: cover;
-    margin-top: -5px;
-  }
-  footer h3 {
-    font-family: var(--font-bold);
-    font-size: 1rem;
-    color: var(--white);
-    text-transform: uppercase;
-    margin: 0 auto 1rem;
-    text-align: center;
-  }
-  footer p {
-    color: var(--white);
     margin-bottom: 1rem;
   }
-  footer .bona-footer-wrapper  figure{
-    width: 110px;
-    margin: 5rem auto 2rem;
+  .bona-header-text-wrapper {
+    width: 58%;
+    margin-left: 42%;
   }
-  .mobile-only {
-    display: inline;
+  .bona-input-wrapper.two-elements input {
+    width: 56%;
   }
-  .tablet-on {
-    display: none;
+  .bona-title-wrapper {
+    background-image: url('../assets/headerimage.svg');
+    background-repeat: no-repeat;
+    background-size: 93%;
+    background-position: left center;
   }
-  @media (min-width: 768px) {
-    .mobile-only {
-      display: none;
-    }
-    .tablet-on {
-      display: inline;
-    }
-    .bona-header-wrapper .bona-img-wrapper {
-      position: static;
-    }
-    .bona-header-wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .bona-side-container:first-child, .bona-side-container:nth-child(2) {
-      background-size: contain;
-    }
-    .bona-secondary-banner h2 {
-      margin-left: 40%;
-    }
-    .bona-secondary-banner figure {
-      left: 33%;
-    }
-    .bona-input-wrapper.two-elements input {
-      width: 65%;
-      margin-left: 0;
-    }
-    .bona-subsection button.width-auto {
-      width: auto;
-    }    
-    .bona-map-wrapper,
-    .bona-localization-comp {
-      width: 60%;
-      margin: 0 auto 2rem;
-    }
-    .bona-input-wrapper.half-width button, .bona-subsection button.width-auto {
-      width: 13rem;
-    }
+  .bona-localization-comp {
+    width: 80%;
   }
-  @media (min-width: 1024px) {
-    main {
-      padding: 0;
-    }
-    .bona-header-wrapper .bona-img-wrapper,
-    .bona-img-wrapper {
-      width: 110px;
-    }
-    .bona-header-wrapper {
-      flex-direction: row;
-      align-items: center;
-    }
-    .bona-header-text-wrapper {
-      width: 90%;
-      margin: 0 auto
-    }   
-    h1 {
-        font-size: 1.5rem;
-        width: 100%;
-    }
-    .text-wrapper {
-      width: calc( 96% - 110px );
-    }
-    header {
-        display: flex;
-        flex-direction: row;
-        align-content: space-between;
-        align-items: flex-start;
-        justify-items: center;
-    }
-    .bona-actions {
-      display: flex;
-      flex-direction: row;
-      align-content: flex-start;
-    }
-    .bona-side-container {
-      width: 50%;
-    }
-    .bona-side-container.bona-bckgrd:nth-child(2) {
-      background: var(--right-hand-bckgrd);  
-    }
-    .bona-secondary-banner h2 {
-      margin-left: 25%;
-    }
-    .bona-secondary-banner figure {
-      left: 13%;
-    }
-    .bona-actions .bona-subsection {
-      width: 100%;
-    }
-    .bona-map-wrapper, #retirar {
-      width: 80%;
-    }
-    .bona-localization-comp {
-      width: 90%;
-    }
-    .bona-map-wrapper {
-      margin-bottom: 3rem;
-    }
-    .bona-side-container:first-child {
-      background-position: bottom left;
-      background-size: cover;
-    }
-    .bona-side-container:nth-child(2) {
-      background-position: bottom right;
-      background-size: cover;
-    }
-    .bona-subsection, footer {
-      padding: 3rem 1rem;
-    }
-    .bona-subsection h2 {
-      font-size: 1.875rem;
-      text-align: center;
-    }
-    .bona-subsection:not(:first-child) {
-      position: relative;
-    }
-    .bona-subsection.bona-arrow-icon::before {
-      content: "";
-      display: block;
-      width: 90px;
-      height: 90px;
-      background-color: var(--right-hand-bckgrd);
-      transform: rotate(135deg);
-      position: absolute;
-      left: -45px;
-      top: 20%;
-    }
-    .bona-input-wrapper.two-elements input {
-      width: 44%;
-    }
-    .bona-input-wrapper.half-width {
-      width: 46%;
-    }
-    .bona-side-container {
-      padding-bottom: 15rem;
-    }
-    footer {
-      margin-top: -19.5rem;
-      background-color: transparent;
-      z-index: 3;
-      position: relative;
-      padding-bottom: 5rem;
-    }
-    footer .bona-footer-wrapper figure {
-      margin: 9rem auto 3rem;
-      width: 135px;
-    }
-    footer h3 {
-      font-size: 1.875rem;
-    }
-    footer p {
-      width: 80%;
-      margin: 0 auto 1rem;
-    }
-    #finform .bona-text-centered {
-      max-width: 60%;
-    }
+  footer {
+    padding: 4.4rem 0 5rem;
   }
-  @media (min-width: 1300px) {
-    .bona-img-wrapper {
-      width: 135px;
-    }
-    header {
-      padding: 0;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      max-width: 95%;
-    }
-    h1 + p {
-      max-width: 80%;
-    }
-    .bona-secondary-banner h2 {
-      margin-left: 33%;
-    }
-    .bona-secondary-banner figure {
-      left: 24%;
-    }
-    .bona-side-container:nth-child(2) #autoexplorate p, 
-    .bona-side-container p {
-      max-width: 71%;
-    }
-    .bona-map-wrapper {
-      margin-bottom: 4rem;
-    }
-    .bona-share-position-wrapper {
-      margin-bottom: 1rem;
-    }
-    .bona-header-text-wrapper {
-      width: 58%;
-      margin-left: 42%;
-    }
-    .bona-input-wrapper.two-elements input {
-      width: 56%;
-    }
-    .bona-title-wrapper {
-      background-image: url('../assets/headerimage.svg');
-      background-repeat: no-repeat;
-      background-size: 93%;
-      background-position: left center;
-    }
-    .bona-localization-comp {
-      width: 80%;
-    }    
-    footer {
-      padding: 4.4rem 0 5rem;
-    }
-    footer p {
-      width: 65%;
-    }
+  footer p {
+    width: 65%;
+  }
 }
