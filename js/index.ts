@@ -8,6 +8,7 @@ function initMap(): void {
         {
             zoom: 11,
             center: mex,
+            disableDefaultUI: true,
         }
 );
 
