@@ -56,17 +56,19 @@ function resizeFrame() {
 
 function focusOnTarget(target, isComingToAutoexplore) {
     const targetElem = document.querySelector('#'+target);
+    const mediaQuery = window.matchMedia('(max-width: 1024px)');
     document.querySelectorAll('[data-remove="true"]').forEach((subsection) => subsection.setAttribute('hidden', true));
     if(isComingToAutoexplore) {
         document.querySelectorAll('.bona-side-container')[1].classList.remove('bona-bckgrd');
     } else {
         document.querySelectorAll('.bona-side-container')[1].classList.add('bona-bckgrd');
     }
-    targetElem.removeAttribute('hidden');    
-    targetElem.scrollIntoView({
-        behavior: "smooth"
-    });
-
+    targetElem.removeAttribute('hidden');
+    if(mediaQuery.matches) {
+        targetElem.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
 }
 
 function getBoundsZoomLevel(bounds, mapDim) {
