@@ -1,4 +1,5 @@
 "use strict";
+
 // Initialize and add the map
 function initMap() {
     var mex = { lat: 19.432608, lng: -99.133209 };

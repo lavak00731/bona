@@ -3,7 +3,7 @@ function initMap(): void {
     const mex = { lat: 19.432608, lng:-99.133209 };
 
     // The map, centered at mex
-    const map = new google.maps.Map(
+    window.map = new google.maps.Map(
         document.getElementById("map") as HTMLElement,
         {
             zoom: 11,
